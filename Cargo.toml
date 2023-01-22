@@ -1,0 +1,17 @@
+[package]
+name = "dice_proba_calc"
+version = "0.1.0"
+authors = ["Alex Olemans"]
+edition = "2021"
+license = "MIT"
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[dependencies]
+rand = "0.8.5"
+rayon = "1.6.1"
