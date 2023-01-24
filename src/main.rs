@@ -35,9 +35,13 @@ fn main() {
 
     let time = now.elapsed();
     println!(
-        "P(\"1\")={0}\n\nTime taken: {1:.2}s ({2:.2}ms)",
+        "P(\"1\")={0}\nGot: {1}\nTime taken: {2}",
         result as f64 / dices as f64,
-        time.as_millis() as f64 / 1000.0,
-        time.as_micros() as f64 / 1000.0
+        format!("{}/{}", result, dices),
+        if time.as_millis() >= 1000 {
+            format!("{:.2}s", time.as_millis() as f64 / 1000.0)
+        } else {
+            format!("{:.2}ms", time.as_micros() as f64 / 1000.0)
+        }
     );
 }
